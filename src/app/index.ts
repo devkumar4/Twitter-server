@@ -10,6 +10,8 @@ import { Tweet } from "./tweet";
 
 export async function initServer() {
   const app = express();
+  app.use(bodyParser.json());
+
   app.use(
     cors({
       origin: "http://localhost:3000",
@@ -17,8 +19,12 @@ export async function initServer() {
       allowedHeaders: ["Content-Type", "Authorization"],
     })
   );
+  app.get("/", (req, res) =>
+    res.status(200).json({
+      message: "Everything is fine",
+    })
+  );
 
-  app.use(bodyParser.json());
   const graphqlServer = new ApolloServer<GraphqlContext>({
     typeDefs: `
       ${User.types}
