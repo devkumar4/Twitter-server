@@ -21,7 +21,7 @@ export async function initServer() {
   );
   app.get("/", (req, res) =>
     res.status(200).json({
-      message: "Everything is fine",
+      message: "Everything is fine and secure",
     })
   );
 
