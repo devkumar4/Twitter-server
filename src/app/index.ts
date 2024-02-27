@@ -12,13 +12,7 @@ export async function initServer() {
   const app = express();
   app.use(bodyParser.json());
 
-  app.use(
-    cors({
-      origin: "http://localhost:3000",
-      credentials: true,
-      allowedHeaders: ["Content-Type", "Authorization"],
-    })
-  );
+  app.use(cors());
   app.get("/", (req, res) =>
     res.status(200).json({
       message: "Everything is fine and secure",
