@@ -15,7 +15,7 @@ export async function initServer() {
   app.use(cors());
   app.get("/", (req, res) =>
     res.status(200).json({
-      message: "Everything is fine and secure",
+      message: "Everything is fine and authenticated",
     })
   );
 
